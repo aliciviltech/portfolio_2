@@ -11,13 +11,15 @@ import GiaicProjects from './GiaicProjects/GiaicProjects'
 const MainBody = () => { 
   const [moveTopBtn, setMoveTopBtn]=useState(false);
 
-  window.addEventListener('scroll',()=>{
-    if(document.body.scrollTop>100 || document.documentElement.scrollTop > 100){
-      setMoveTopBtn(true);
-    } else{
-      setMoveTopBtn(false);
-    }
-  })
+  useEffect(()=>{
+    window.addEventListener('scroll',()=>{
+      if(document.body.scrollTop>100 || document.documentElement.scrollTop > 100){
+        setMoveTopBtn(true);
+      } else{
+        setMoveTopBtn(false);
+      }
+    })
+  },[])
 
   return (
     <div className='MainBody'>
